@@ -1,4 +1,4 @@
-package arquetipoAhorcadoBD;
+package bbdd;
 
 import java.util.Iterator;
 
