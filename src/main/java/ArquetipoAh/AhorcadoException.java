@@ -1,4 +1,4 @@
-package arquetipoAh;
+package arquetipoAhorcadoBD;
 
 public class AhorcadoException extends RuntimeException {
     /**
