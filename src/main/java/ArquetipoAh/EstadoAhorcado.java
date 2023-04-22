@@ -1,4 +1,4 @@
-package arquetipoAh;
+package arquetipoAhorcadoBD;
 
 public enum EstadoAhorcado {
 
