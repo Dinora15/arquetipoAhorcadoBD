@@ -1,4 +1,4 @@
-package arquetipoAh;
+package arquetipoAhorcadoBD;
 
 import java.util.Arrays;
 import java.util.List;
