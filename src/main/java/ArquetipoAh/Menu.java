@@ -1,10 +1,19 @@
-package arquetipoAh;
+package arquetipoAhorcadoBD;
 
 import java.util.Scanner;
 
+public class Drive {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		Menu seleccion=new Menu();
+		seleccion.Inicio();
+
+	}
 
 
-public class Menu {
+public  Menu (){
 	
 	
 	private String obtenerNombreJugador(Scanner Sc) {
@@ -92,5 +101,5 @@ public class Menu {
 	
     }
 
-	}
+	
 
