@@ -43,7 +43,7 @@ public class BBDDAhorcado {
             //2. recuperar datos de SELECT filtrando por el nombre
             String sql = "SELECT * FROM partida WHERE nombre = ?";
             pstmt = con.prepareStatement(sql);
-            pstmt.setString(1, nombrePlayer);
+            pstmt.setString(1, player.getNombre());
             rst = pstmt.executeQuery();
 
             //3. rellenar pojo con los datos. Si no se ha encontrado datos, devolver Pojo con nombre vacio
@@ -84,9 +84,9 @@ public class BBDDAhorcado {
 
             // 2. Realizar select para comprobar si ya existe el player en la tabla.
             String sqlSelect = "SELECT * FROM partida WHERE nombre = ?";
-            PreparedStatement pstmtSelect = conn.prepareStatement(sqlSelect);
+            PreparedStatement pstmtSelect = con.prepareStatement(sqlSelect);
             pstmtSelect.setString(1, player.getNombre());
-            ResultSet rst = pstmtSelect.executeQuery();
+            rst = pstmtSelect.executeQuery();
 
             // 2.2 Si existe, realizamos un UPDATE sobre el registro
             if (rst.next()) {
