@@ -41,7 +41,7 @@ public class BBDDAhorcado {
         	 con = DriverManager.getConnection( this.servidor + "/" + this.bbdd, this.usuario, this.pass);
 
             //2. recuperar datos de SELECT filtrando por el nombre
-            String sql = "SELECT * FROM players WHERE name = ?";
+            String sql = "SELECT * FROM partida WHERE name = ?";
             pstmt = con.prepareStatement(sql);
             pstmt.setString(1, nombrePlayer);
             rst = pstmt.executeQuery();
