@@ -71,6 +71,63 @@ public class BBDDAhorcado {
 		
 		return player;		
 	}
+	
+	
+	public void savePlayer(PlayerPojo player) {
+    	
+    	 Connection con = null;
+	        PreparedStatement pstmt = null;
+	        ResultSet rst = null;
+        try {
+            // 1. Conectar a bbdd
+            con = DriverManager.getConnection( this.servidor + "/" + this.bbdd, this.usuario, this.pass);
+
+            // 2. Realizar select para comprobar si ya existe el player en la tabla.
+            String sqlSelect = "SELECT * FROM partida WHERE nombre = ?";
+            PreparedStatement pstmtSelect = conn.prepareStatement(sqlSelect);
+            pstmtSelect.setString(1, player.getNombre());
+            ResultSet rst = pstmtSelect.executeQuery();
+
+            // 2.2 Si existe, realizamos un UPDATE sobre el registro
+            if (rst.next()) {
+                String sqlUpdate = "UPDATE partida SET estado = ?, intentos = ?, letrasUtilizadas = ?, palabraJuego = ? WHERE nombre = ?";
+                PreparedStatement pstmtUpdate = con.prepareStatement(sqlUpdate);
+                pstmtUpdate.setInt(1, player.getEstado());
+                pstmtUpdate.setInt(2, player.getIntentos());
+                pstmtUpdate.setString(3, player.getLetrasUtilizadas());
+                pstmtUpdate.setString(4, player.getPalabraJuego());
+                pstmtUpdate.setString(5, player.getNombre());
+                pstmtUpdate.executeUpdate();
+                pstmtUpdate.close();
+            }
+            // 2.3 Si no existe, realizamos un INSERT
+            else {
+                String sqlInsert = "INSERT INTO partida (nombre, estado, intentos, letrasUtilizadas, palabraJuego) VALUES (?, ?, ?, ?, ?)";
+                PreparedStatement pstmtInsert = con.prepareStatement(sqlInsert);
+                pstmtInsert.setString(1, player.getNombre());
+                pstmtInsert.setInt(2, player.getEstado());
+                pstmtInsert.setInt(3, player.getIntentos());
+                pstmtInsert.setString(4, player.getLetrasUtilizadas());
+                pstmtInsert.setString(5, player.getPalabraJuego());
+                pstmtInsert.executeUpdate();
+                pstmtInsert.close();
+            }
+
+            // 3. Se cierra conexión
+            rst.close();
+            pstmtSelect.close();
+            con.close();
+        }
+        // Control de excepciones
+        catch (SQLException e) {
+
+            e.printStackTrace();
+        }
+    }
+		
+	
+	
+	
 	    }
 	    
 		
