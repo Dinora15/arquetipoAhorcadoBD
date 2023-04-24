@@ -64,9 +64,10 @@ public class BBDDAhorcado {
             con.close();
         }
 		//debe existir control de excepciones
-        catch (SQLException e) {
-        // handle exceptions here
-        e.printStackTrace();
+        catch (Exception e) {
+            throw new AhorcadoException("No es un jugador"+e);
+        
+        
         }
 		
 		return player;		
@@ -119,9 +120,8 @@ public class BBDDAhorcado {
             con.close();
         }
         // Control de excepciones
-        catch (SQLException e) {
-
-            e.printStackTrace();
+         catch (Exception e) {
+            throw new AhorcadoException("No se puede guadar Información"+e);
         }
     }
 		
