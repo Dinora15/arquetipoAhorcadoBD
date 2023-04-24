@@ -5,32 +5,33 @@ public class BBDDAhorcado {
 	
 	 
 	    private String servidor;
-	    private String usuario;
-	    private String pass; 
-	    private String bbdd;
-	    
-	    
+    private String usuario;
+    private String pass=""; 
+    private String bbdd="ahorcadobd";
+    
+    
+    
 
-	    public BBDDAhorcado(){
-	        
-	        this.servidor = "jdbc:mysql://localhost:3306"; 
-	        this.bbdd = "ahorcadobd"; 
-	        this.usuario = "root";
-	        this.pass = ""; 
-		    
+    public BBDDAhorcado(){
+        
+        this.servidor = "jdbc:mysql://localhost:3306";
+        this.bbdd = "ahorcadobd"; 
+        this.usuario = "root";
+        this.pass = ""; 
 
-	        try {
-	            Class.forName("com.mysql.jdbc.Driver"); 
-	        } catch (Exception e) {
-	            throw new AhorcadoException("Driver de BD no localizado"+e);
-	        }
-	    }
-	
-	
-		    
-		     public PlayerPojo getPlayer(String nombrePlayer) {
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver"); 
+        } catch (Exception e) {
+            throw new AhorcadoException("Driver de BD no localizado"+e);
+        }
+    }
+    
+    
+    
+    public PlayerPojo getPlayer(String nombrePlayer) {
 		PlayerPojo player;		
-		player=new PlayerPojo();
+		player=new PlayerPojo();		
+		
 		 Connection con = null;
 	        PreparedStatement pstmt = null;
 	        ResultSet rst = null;
@@ -42,6 +43,7 @@ public class BBDDAhorcado {
 
             //2. recuperar datos de SELECT filtrando por el nombre
             String sql = "SELECT * FROM partida WHERE nombre = ?";
+            
             pstmt = con.prepareStatement(sql);
             pstmt.setString(1, nombrePlayer);
             rst = pstmt.executeQuery();
@@ -51,9 +53,8 @@ public class BBDDAhorcado {
                 player.setNombre(rst.getString("nombre"));
                 player.setEstado(rst.getInt("estado"));
                 player.setIntentos(rst.getInt("intentos"));
-		player.setPalabraJuego(rst.getString("palabraJuego"));
-                player.setLetrasUtilizadas(rst.getString("letrasUtilizadas"));
-                
+                player.setPalabraJuego(rst.getString("palabraJuego"));
+                player.setLetrasUtilizadas(rst.getString("letrasUtilizadas"));	
             } else {
                 player.setNombre("");
             }
@@ -69,12 +70,11 @@ public class BBDDAhorcado {
         
         
         }
-		
 		return player;		
 	}
-	
-	
-	public void savePlayer(PlayerPojo player) {
+    
+    
+    public void savePlayer(PlayerPojo player) {
     	
     	 Connection con = null;
 	        PreparedStatement pstmt = null;
@@ -91,19 +91,22 @@ public class BBDDAhorcado {
 
             // 2.2 Si existe, realizamos un UPDATE sobre el registro
             if (rst.next()) {
-                String sqlUpdate = "UPDATE partida SET estado = ?, intentos = ?, letrasUtilizadas = ?, palabraJuego = ? WHERE nombre = ?";
+                String sqlUpdate = "UPDATE partida SET estado = ?, intentos = ?, palabraJuego = ?, letrasUtilizadas = ? WHERE nombre = ?";
                 PreparedStatement pstmtUpdate = con.prepareStatement(sqlUpdate);
+                
                 pstmtUpdate.setInt(1, player.getEstado());
                 pstmtUpdate.setInt(2, player.getIntentos());
-                pstmtUpdate.setString(3, player.getLetrasUtilizadas());
-                pstmtUpdate.setString(4, player.getPalabraJuego());
+                pstmtUpdate.setString(3, player.getPalabraJuego());
+                pstmtUpdate.setString(4, player.getLetrasUtilizadas());
                 pstmtUpdate.setString(5, player.getNombre());
+               
+                
                 pstmtUpdate.executeUpdate();
                 pstmtUpdate.close();
             }
             // 2.3 Si no existe, realizamos un INSERT
             else {
-                String sqlInsert = "INSERT INTO partida (nombre, estado, intentos, letrasUtilizadas, palabraJuego) VALUES (?, ?, ?, ?, ?)";
+                String sqlInsert = "INSERT INTO partida (nombre, estado, intentos,  palabraJuego, letrasUtilizadas) VALUES (?, ?, ?, ?, ?)";
                 PreparedStatement pstmtInsert = con.prepareStatement(sqlInsert);
                 pstmtInsert.setString(1, player.getNombre());
                 pstmtInsert.setInt(2, player.getEstado());
@@ -120,12 +123,20 @@ public class BBDDAhorcado {
             con.close();
         }
         // Control de excepciones
-         catch (Exception e) {
+        catch (Exception e) {
             throw new AhorcadoException("No se puede guadar Información"+e);
         }
     }
 		
-	public void cleanPlayer(PlayerPojo player) {
+		//1. Conectar a bbdd
+		//2. recuperar datos de SELECT filtrando por el nombre
+		//3. rellenar pojo con los datos. Si no se ha encontrado datos, devolver Pojo con nombre vacio
+		//4. Cerrar conexion bbdd
+		
+		//debe existir control de excepciones
+		
+		
+    public void cleanPlayer(PlayerPojo player) {
     	
     	//Podemos optar por borrar el registro o bien por updatearlo como si fuera inicio de partida
     	
@@ -165,7 +176,7 @@ public class BBDDAhorcado {
          catch (Exception e) {
              throw new AhorcadoException("No se puede limpiar el registro Jugador"+e);
          }
-	
+    }
 }
 	    
 		
