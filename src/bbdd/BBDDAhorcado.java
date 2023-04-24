@@ -43,7 +43,7 @@ public class BBDDAhorcado {
             //2. recuperar datos de SELECT filtrando por el nombre
             String sql = "SELECT * FROM partida WHERE nombre = ?";
             pstmt = con.prepareStatement(sql);
-            pstmt.setString(1, player.getNombre());
+            pstmt.setString(1, nombrePlayer);
             rst = pstmt.executeQuery();
 
             //3. rellenar pojo con los datos. Si no se ha encontrado datos, devolver Pojo con nombre vacio
