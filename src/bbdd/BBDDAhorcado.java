@@ -1,5 +1,8 @@
 package bbdd;
-import arquetipoAhorcadoBD.*;
+import java.sql.*;
+
+import arquetipoBDAhorc.AhorcadoException;
+
 
 public class BBDDAhorcado {
 	
