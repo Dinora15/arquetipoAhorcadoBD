@@ -125,10 +125,47 @@ public class BBDDAhorcado {
         }
     }
 		
+	public PlayerPojo getPlayer(String nombrePlayer) {
+		PlayerPojo player;		
+		player=new PlayerPojo();
+
+		try {
+		    //1. Conectar a bbdd
+		    conn = DriverManager.getConnection("jdbc:mysql://" + servidor + "/" + bbdd, usuario, pass);
+
+		    //2. recuperar datos de SELECT filtrando por el nombre
+		    String sql = "SELECT * FROM players WHERE name = ?";
+		    PreparedStatement pstmt = conn.prepareStatement(sql);
+		    pstmt.setString(1, nombrePlayer);
+		    ResultSet rs = pstmt.executeQuery();
+
+		    //3. rellenar pojo con los datos. Si no se ha encontrado datos, devolver Pojo con nombre vacio
+		    if (rs.next()) {
+			player.setNombre(rs.getString("nombre"));
+			player.setEstado(rs.getString("estado"));
+			player.setIntentos(rs.getInt("intentos"));
+			player.setLetrasUtilizadas(rs.getString("letrasUtilizadas"));
+			player.setPalabraJuego(rs.getString("palabraJuego"));
+		    } else {
+			player.setNombre("");
+		    }
+
+		    //4. Cerrar conexion bbdd
+		    rs.close();
+		    pstmt.close();
+		    conn.close();
+		}
+			//debe existir control de excepciones
+		catch (SQLException e) {
+		// handle exceptions here
+		e.printStackTrace();
+		}
+
+		return player;		
+	}
 	
 	
-	
-	    }
+}
 	    
 		
 
