@@ -2,7 +2,7 @@ package DRIVE;
 
 import java.util.Scanner;
 
-import arquetipoBDAhorc.*;
+import arquetipoAhorcadoBD.*;
 
 public class Menu {
 	
