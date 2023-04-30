@@ -49,6 +49,18 @@ El juego es funcional y funcióna de la siguiente manera:
 
 <br><br>
 
+3. Inicio Juego, con palabra ha buscar y figura del ahorcado:
+
+<br>
+<br>
+
+<img width="252" alt="juegoInicio" src="https://user-images.githubusercontent.com/108556884/235375243-208b5666-43cc-4ef9-b258-bb39734b4c79.png">
+
+<br>
+<br>
+
+4. Se registra en Base de Datos
+
 
 
 
