@@ -9,19 +9,33 @@ Estructura Basada en el Diagra de Clases UML y Caso de Uso.
 
 <br>
 <br>
+
+
 ![Caso de Uso MenuBD](https://user-images.githubusercontent.com/108556884/235373189-862c5b5d-95b5-491a-8634-d435ea9f0973.png)
+
+
 <br>
 <br>
 
 ## Tabla de Contenidos
 
-- [Installation](#installation)
-- [Usage and features](#usage)
-- [Contributing](#contributing)
-- [License](#license)
+- [Installation]
+- [Usage and features]
+- [Contributing]
+- [License]
 
 ## Instalación
 Prototipo en desarrollo. Ejecución en Consola
+
+## Uso y características
+
+El juego es funcional y funcióna de la siguiente manera:
+
+1. Se presenta el Menú de Inici0
+
+
+
+
 
 
 
