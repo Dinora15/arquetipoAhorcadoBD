@@ -62,6 +62,7 @@ El juego es funcional y funcióna de la siguiente manera:
 4. Se registra en Base de Datos
 <br><br>
 
+<img width="495" alt="baseDatos" src="https://user-images.githubusercontent.com/108556884/235375458-7eb3c25e-1f9d-4764-b21d-0991dde21121.png">
 
 
 <br>
