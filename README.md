@@ -88,6 +88,21 @@ El juego es funcional y funcióna de la siguiente manera:
 <br><br>
 
 <img width="495" alt="ActualizacionBD" src="https://user-images.githubusercontent.com/108556884/235375905-ae7347e8-0b8b-4613-93c4-71a5adcd11eb.png">
+<BR><BR>
+
+## Contribución
+
+Es un prototipo funcional que puede ser mejorado y actualizado. Algunos de los cambios del equipo que tienen en consideración son:
+
+1. Modo de varios jugadores, 2 o mas jugadores interviniendo para obtener la letra correcta.
+2. Permitir nuevas palabras en la lista.
+
+
+## Licencia
+
+Este prototipo es bajo la licencia de [GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0.en.html).
+
+
 
 
 
