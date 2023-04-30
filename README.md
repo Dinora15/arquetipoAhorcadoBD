@@ -31,7 +31,21 @@ Prototipo en desarrollo. Ejecución en Consola
 
 El juego es funcional y funcióna de la siguiente manera:
 
-1. Se presenta el Menú de Inici0
+1. Se presenta el Menú de Inicio
+
+<br>
+<br>
+
+<img width="176" alt="menuInicial" src="https://user-images.githubusercontent.com/108556884/235374814-546520b4-3877-4aed-8105-843fe1cb5eea.png">
+
+
+<br>
+<br>
+
+
+
+
+
 
 
 
