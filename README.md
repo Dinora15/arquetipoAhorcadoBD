@@ -73,8 +73,16 @@ El juego es funcional y funcióna de la siguiente manera:
 
 <img width="254" alt="continuarJuego" src="https://user-images.githubusercontent.com/108556884/235375641-4f4711d0-082d-4201-ae38-56b358f17ac3.png">
 
+<br><br>
+
+6. Se finaliza fuego
+
+<br><br>
+
+<img width="236" alt="finalizarJuego" src="https://user-images.githubusercontent.com/108556884/235375789-df558253-726a-4ea5-bad1-d36a917dcfa4.png">
 
 
+<br><br>
 
 
 
