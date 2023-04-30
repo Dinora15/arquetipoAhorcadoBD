@@ -68,6 +68,10 @@ El juego es funcional y funcióna de la siguiente manera:
 <br>
 <br>
 
+5 Se continua Juego
+<br><br>
+
+<img width="254" alt="continuarJuego" src="https://user-images.githubusercontent.com/108556884/235375641-4f4711d0-082d-4201-ae38-56b358f17ac3.png">
 
 
 
