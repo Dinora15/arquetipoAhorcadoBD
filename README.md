@@ -60,6 +60,14 @@ El juego es funcional y funcióna de la siguiente manera:
 <br>
 
 4. Se registra en Base de Datos
+<br><br>
+
+
+
+<br>
+<br>
+
+
 
 
 
