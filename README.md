@@ -42,6 +42,13 @@ El juego es funcional y funcióna de la siguiente manera:
 <br>
 <br>
 
+2. Selección Jugador
+<br><br>
+
+<img width="133" alt="MenuJugador" src="https://user-images.githubusercontent.com/108556884/235374937-49dd6b5a-c9ea-4baa-82ef-6fe707b45a4a.png">
+
+<br><br>
+
 
 
 
