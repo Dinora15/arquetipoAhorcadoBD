@@ -84,6 +84,11 @@ El juego es funcional y funcióna de la siguiente manera:
 
 <br><br>
 
+7. Se actualiza base de datos
+<br><br>
+
+<img width="495" alt="ActualizacionBD" src="https://user-images.githubusercontent.com/108556884/235375905-ae7347e8-0b8b-4613-93c4-71a5adcd11eb.png">
+
 
 
 
